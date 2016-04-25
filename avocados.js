@@ -27,14 +27,62 @@ exports.qtyPrice = function(){
   return avoList;
 };
 
+
 exports.price = function(avoList){
-
   var avocados = avoList;
-  var priceList = ""
+  var priceList = [];
 
-    for (var avoList in avocados) {
+    avocados.forEach(function(avo){
 
-        console.log(avocados[avoList].[0]);
+      var prices =  avo.price / avo.quantity;
+      var price = Number(prices);
+          priceList.push({
+            Deal: "avocado",
+            pricePerAvo: price.toFixed(2)
+          });
+    });
 
+    return priceList;
+};
+
+
+exports.cheapest = function(priceList){
+  var deal = priceList;
+  var avocados = deal[0].pricePerAvo;
+  var cheapest = "";
+
+  for (var priceList in deal) {
+    if (deal[priceList].pricePerAvo < avocados) {
+      cheapest = deal[priceList].pricePerAvo;
     }
+  };
+
+  return cheapest;
+};
+
+
+exports.expensive = function(listOfPricesPerAvo){
+  var expensive = 0;
+
+  listOfPricesPerAvo.forEach(function(item){
+    if (item.pricePerAvo > expensive) {
+      expensive = item.pricePerAvo;
+    }
+  });
+
+  return expensive;
+};
+
+
+exports.average =function(avoList){
+  var average = "";
+
+  // for (var i = 0; i < avocados.length; i++) {
+  //
+  //   console.log(
+  //
+  // }
+    // = Number(deals.price);
+
+
 };
