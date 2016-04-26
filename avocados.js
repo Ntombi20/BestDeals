@@ -28,8 +28,8 @@ exports.qtyPrice = function(){
 };
 
 
-exports.price = function(avoList){
-  var avocados = avoList;
+exports.price = function(quantityAndPrices){
+  var avocados = quantityAndPrices;
   var priceList = [];
 
     avocados.forEach(function(avo){
@@ -46,16 +46,15 @@ exports.price = function(avoList){
 };
 
 
-exports.cheapest = function(priceList){
-  var deal = priceList;
-  var avocados = deal[0].pricePerAvo;
+exports.cheapest = function(listOfPricesPerAvo){
+  var avocados = listOfPricesPerAvo[0].pricePerAvo;
   var cheapest = "";
 
-  for (var priceList in deal) {
-    if (deal[priceList].pricePerAvo < avocados) {
-      cheapest = deal[priceList].pricePerAvo;
+  listOfPricesPerAvo.forEach(function(item){
+    if (item.pricePerAvo < avocados) {
+      cheapest = item.pricePerAvo;
     }
-  };
+  });
 
   return cheapest;
 };
@@ -74,15 +73,22 @@ exports.expensive = function(listOfPricesPerAvo){
 };
 
 
-exports.average =function(avoList){
+exports.average =function(quantityAndPrices){
   var average = "";
+  var qty = 0;
+  var prices = 0;
 
-  // for (var i = 0; i < avocados.length; i++) {
-  //
-  //   console.log(
-  //
-  // }
-    // = Number(deals.price);
+    quantityAndPrices.forEach(function(qtyPrice){
 
+      qty += qtyPrice.quantity;
+    })
 
+    quantityAndPrices.forEach(function(qtyPrice){
+
+      prices += qtyPrice.price;
+    })
+
+      average = prices / qty;
+
+  return average.toFixed(2);
 };
