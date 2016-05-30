@@ -1,5 +1,6 @@
 var fs = require('fs');
 
+// convert the string into an array (split out the quantity and the price);
 exports.qtyPrice = function(){
 
   var avocados = fs.readFileSync('./files/avo.txt', 'utf8' );
@@ -27,7 +28,7 @@ exports.qtyPrice = function(){
   return avoList;
 };
 
-
+// take an array as an input and calculate the Price Per Avo for each deal.
 exports.price = function(quantityAndPrices){
   var avocados = quantityAndPrices;
   var priceList = [];
@@ -45,7 +46,7 @@ exports.price = function(quantityAndPrices){
     return priceList;
 };
 
-
+// find the cheapest deal
 exports.cheapest = function(listOfPricesPerAvo){
   var avocados = listOfPricesPerAvo[0].pricePerAvo;
   var cheapest = "";
@@ -59,7 +60,7 @@ exports.cheapest = function(listOfPricesPerAvo){
   return cheapest;
 };
 
-
+// find the most expensive deal;
 exports.expensive = function(listOfPricesPerAvo){
   var expensive = 0;
 
@@ -72,7 +73,7 @@ exports.expensive = function(listOfPricesPerAvo){
   return expensive;
 };
 
-
+// find the average price across all the deals.
 exports.average =function(quantityAndPrices){
   var average = "";
   var qty = 0;
