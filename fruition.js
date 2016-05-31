@@ -50,19 +50,25 @@ exports.sellerApples =function(shops){
 };
 
 //should return the prices and sellers of apples, order ascending by price;
-exports.ascending = function(apples){
+exports.ascending = function(ascendingApples){
 
-  apples.sort(function(a,b){
+  ascendingApples.sort(function(a,b){
   return a.price - b.price
   });
-  
-  return apples
+
+  return ascendingApples
 };
 
-// exports.descending = function(){
-//
-// };
-//
+// return the prices and sellers of apples, order descending by price;
+exports.descending = function(descendingApples){
+
+  descendingApples.sort(function(a,b){
+  return b.price - a.price;
+  });
+  
+  return descendingApples
+};
+
 // exports.cheapestFruit = function(){
 //
 // };
@@ -76,8 +82,8 @@ exports.ascending = function(apples){
 // };
 
 
-    // return the prices and sellers of apples, order ascending by price;
-    // return the prices and sellers of apples, order descending by price;
+
+    //
     // return the cheapest fruit;
     // return the seller of the fruit with the lowest price;
     // return all the shops that sell oranges.

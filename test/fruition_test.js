@@ -88,23 +88,23 @@ describe("The best of deals: Fruition", function(){
 
     var expectedDescendingPrice = [
       {
-        "seller": "chockers",
-        "applesPrices": 5
+        "shop": "chockers",
+        "price": 5
       },
       {
-        "seller": "woolingsworth",
-        "applesPrices": 4
+        "shop": "woolingsworth",
+        "price": 4
       },
       {
-        "seller": "kwakspar",
-        "applesPrices": 4
+        "shop": "kwakspar",
+        "price": 4
       },
       {
-        "seller": "shopwrong",
-        "applesPrices": 2
+        "shop": "shopwrong",
+        "price": 2
       }
     ];
-    assert.deepEqual( fruition.descending(shops), "expectedDescendingPrice");
+    assert.deepEqual( fruition.descending(expectedShopsForApples), expectedDescendingPrice);
   });
 
   it("should return the cheapest fruit", function(){
